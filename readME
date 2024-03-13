@@ -1,0 +1,29 @@
+Face Recognition Webcam Security System
+This project demonstrates a face recognition security system using a webcam. It detects faces in live video streams and matches them with known faces to determine if they are authorized users or intruders.
+
+Dependencies
+Python 3.x
+face_recognition
+opencv-python
+numpy
+websocket-client
+You can install the required Python packages using pip:
+
+Copy code
+pip install face_recognition opencv-python numpy websocket-client
+Setup
+Clone or download this repository to your local machine.
+Install the required dependencies as mentioned above.
+Place images of authorized users in the same directory as the script (User1.jpg, User2.jpg, etc.).
+Usage
+Run the face_recognition_webcam.py script.
+The webcam will activate, and faces will be detected in the live video stream.
+If a recognized face is detected, the system will send an "off" command to an ESP32 device via WebSocket.
+If an unrecognized face (intruder) is detected, the system will send an "on" command to the ESP32 device.
+Press 'q' to quit the program.
+WebSocket Setup
+Ensure you have an ESP32 device with WebSocket support.
+Replace websocket_url variable in the script with your ESP32 WebSocket server URL.
+Notes
+This demo processes every other frame of video to save processing time.
+The system is set up to toggle a security mechanism (like a buzzer or light) connected to an ESP32 device when an intruder is detected.
